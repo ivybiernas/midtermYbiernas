@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  this is the detail page
+{% endblock %}
+
+{% block body %}
+  {{ post.title }} <br/>
+  {{ post.content }} <br/>
+  {% for comment in post.comments.all %}
+    {{ comment.content }}
+  {% endfor %}
+
+  <br/>
+  <a href="{% url 'post:comment' %}"> <button> Comment </button> </a>
+  <br/>
+  <a href="{% url 'post:update' %}"> <button> Update </button> </a>
+
+{% endblock %}
